@@ -1,6 +1,23 @@
 パイロット版プロトタイプ
 =============
 
+## ページ構成
+
+* index.html
+  * 検索フォーム
+* result.html
+  * 検索結果
+* confirm_foward.html
+  * 往路予約確認
+* input_backward.html
+  * 復路検索
+* result_backward.html
+  * 復路検索結果
+* confirm_backward.html
+  * 往復路予約確認
+* complete.html
+  * 予約完了
+
 ## フォルダ構成
 
 ```
