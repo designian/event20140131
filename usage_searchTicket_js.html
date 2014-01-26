@@ -7,6 +7,10 @@
 </head>
 <body>
 
+<div id="test">
+
+</div>
+
 <script src="js/lib/jquery-1.10.2.js"></script>
 <script src="js/lib/moment-with-langs.min.js"></script>
 <script src="js/lib/underscore-min.js"></script>
@@ -34,6 +38,13 @@ $(function(){
       console.log("到着："+ result.endTime);
     });
   })(results);
+
+  var tmpl = _.template("<h1><%- header %></h1><p><%- content %></p>");
+  var html = tmpl({
+    header: "へっだー",
+    content: "こんてんと"
+  });
+  $("#test").append(html)
 
 
 });

@@ -57,7 +57,7 @@
         }
 
 
-
+        
     </style>
 </head>
 <body>
@@ -290,12 +290,8 @@
 </div>
 
 
-<!--Script-->
-<script src="js/lib/jquery-1.10.2.js"></script>
-<script src="js/lib/moment-with-langs.min.js"></script>
-<script src="js/lib/underscore-min.js"></script>
-<script src="js/util.js"></script>
-<script src="js/searchTicket.js"></script>
+    <!--Script-->
+    <script src="js/jquery-1.10.2.js" charset="UTF-8"></script>
     <script>
 
         $(function () {
@@ -332,7 +328,7 @@
             function getData(){
                 var strageData = localStorage.designian;
                 strageData = JSON.parse(strageData);
-                return strageData;
+                return strageData; 
                 alert(strageData.ticket);
             }
 
