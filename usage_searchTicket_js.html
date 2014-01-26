@@ -22,7 +22,7 @@ $(function(){
   // 日時を指定してdoSearchTimeを実行
   st.doSearchTime("2013-01-26T15:30", {
     shiftMinutes: 6, // 最初の一件の出発時間(分)をずらす
-    endCount: 3, // 表示件数
+    endCount: 5, // 表示件数
     interval: 150 // 出発と到着時間の差
   });
 
@@ -31,20 +31,13 @@ $(function(){
 
   // 結果を表示する関数を定義して実行する
   (function displaySearchResult(results){
+    var tmpl = _.template("<%- name %><%- date %><%- startTime %><%- endTime %>");
+
     _.each(results, function(result) {
-      console.log("名前："+ result.name);
-      console.log("日付："+ result.date);
-      console.log("出発："+ result.startTime);
-      console.log("到着："+ result.endTime);
+      $("#test").append(tmpl(result));
+      $("#test").append("<br>");
     });
   })(results);
-
-  var tmpl = _.template("<h1><%- header %></h1><p><%- content %></p>");
-  var html = tmpl({
-    header: "へっだー",
-    content: "こんてんと"
-  });
-  $("#test").append(html)
 
 
 });
