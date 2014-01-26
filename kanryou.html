@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>予約完了</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<section id="kanryou">
+		<h1>予約完了</h1>
+		<p>予約が完了しました。ありがとうございます。</p>
+		<div class="iki">
+			<h2>行き</h2>
+			<h3>のぞみ 51号 (N700系／全席禁煙)</h3>
+			<p class="date"><time class="date1">1月25日</time></p>
+			<p class="time"><span id="h1_1">16</span>:50　〜　<span id="h2_1">19</span>:26</p>
+		</div>
+
+		<div class="kaeri">
+			<h2>帰り</h2>
+			<h3>のぞみ 51号 (N700系／全席禁煙)</h3>
+			<p class="date"><time class="date2">1月25日</time></p>
+			<p class="time"><span id="h1_1">16</span>:50　〜　<span id="h2_1">19</span>:26</p>
+		</div>
+	</section>
+	<script src="js/jquery-1.10.2.js" charset="UTF-8"></script>
+	<script>
+		function getData(){
+                var strageData = localStorage.designian;
+                strageData = JSON.parse(strageData);
+                return strageData;
+                //alert(strageData.ticket);
+		}
+		console.log(strageData.month)
+		$(".date1").text(getData().month+"月"+getData().day+"日");
+		$(".date2").text(getData().month+"月"+getData().day+"日");
+
+	</script>
+</body>
+</html>

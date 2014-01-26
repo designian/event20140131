@@ -1,0 +1,80 @@
+#result ul,
+#result2 ul {
+  margin: 0;
+  padding: 0;
+  /*border-top: 1px solid #000;*/
+
+}
+#result ul li,
+#result2 ul li {
+  position: relative;
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0 .5em;
+  border-bottom: 1px solid #cccccc;
+}
+#result ul li h2,
+#result2 ul li h2 {
+  margin-bottom: 0;
+}
+#result ul li .list_btn,
+#result2 ul li .list_btn {
+  position: absolute;
+  right: 0;
+  display: block;
+  top: 1em;
+}
+h1 {
+  font-size: 120%;
+  border-bottom: 1px solid #cccccc;
+}
+h2 {
+  font-size: 96%;
+}
+h3 {
+  font-size: 100%;
+}
+.time {
+  margin: 0;
+}
+.time::before {
+  content: "時間：";
+}
+.date {
+  margin: 0;
+}
+.date::before {
+  content: "日時：";
+}
+#kounyu .iki,
+#kanryou .iki,
+#kounyu .kaeri,
+#kanryou .kaeri {
+  background-color: #efefef;
+  padding: 1em;
+  margin-bottom: 1em;
+  padding-top: .3em;
+}
+.btn {
+  padding: .7em;
+  line-height: 1;
+  font-size: 100%;
+  background-color: #ff2a3e;
+  border: 3px solid #c30012;
+  margin-bottom: 1em;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+}
+.btn a {
+  color: white;
+  text-decoration: none;
+}
+.btn.gray {
+  background-color: #303030;
+  border: 3px solid #000000;
+  color: #fff;
+}
+.btn.small {
+  font-size: 70%;
+}
