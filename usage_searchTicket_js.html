@@ -16,14 +16,14 @@
 $(function(){
 
   // 日時を指定してdoSearchTimeを実行
-  doSearchTime("2013-01-26T15:30", {
+  st.doSearchTime("2013-01-26T15:30", {
     shiftMinutes: 6, // 最初の一件の出発時間(分)をずらす
     endCount: 3, // 表示件数
     interval: 150 // 出発と到着時間の差
   });
 
   // doSearchTimeの結果を取得する
-  var results = getSearchResult();
+  var results = st.getSearchResult();
 
   // 結果を表示する関数を定義して実行する
   (function displaySearchResult(results){

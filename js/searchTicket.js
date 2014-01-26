@@ -1,5 +1,7 @@
 /* require underscore.js, moment.js, util.js  */
 (function(exports){
+  exports.st = exports.st || {};
+  var st = exports.st;
 
   moment.lang('ja', {
       weekdays: ["日曜日","月曜日","火曜日","水曜日","木曜日","金曜日","土曜日"],
@@ -17,7 +19,7 @@
    *   @param _opts.endCount {Number} 取得する件数
    *   @param _opts.interval {Number} 出発と到着の時間差(分)
    */
-  exports.doSearchTime = function(datetime, _opts) {
+  st.doSearchTime = function(datetime, _opts) {
     var SearchTimeModel = function(momentObj){
       this.year    = momentObj.year();
       this.month   = momentObj.month();
@@ -47,7 +49,7 @@
       };
     }
 
-    setSessionStorage("d-searchResult", JSON.stringify(results));
+    util.setSessionStorage("d-searchResult", JSON.stringify(results));
   };
 
   /**
@@ -56,7 +58,7 @@
    * @method getSearchResult
    * return {Array}
    */
-  exports.getSearchResult = function(){
+  st.getSearchResult = function(){
     var TimeModel = function(time) {
       this.year    = time.year;
       this.month   = time.month;
@@ -68,7 +70,7 @@
       }
     };
 
-    var times = JSON.parse(getSessionStorage("d-searchResult"));
+    var times = JSON.parse(util.getSessionStorage("d-searchResult"));
 
     return _.map(times, function(time, index) {
       var _start = new TimeModel(time.start).getMoment();

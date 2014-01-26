@@ -1,4 +1,6 @@
 (function(exports) {
+  exports.util = exports.util || {};
+  var util = exports.util;
 
   /**
    * sessionStorageに値を保存する
@@ -7,7 +9,7 @@
    * @param {String} key
    * @param {String} value
    */
-  exports.setSessionStorage = function(key, value) {
+  util.setSessionStorage = function(key, value) {
     sessionStorage.setItem(key, value);
   };
 
@@ -18,7 +20,7 @@
    * @param {String} key
    * @return {String}
    */
-  exports.getSessionStorage = function(key) {
+  util.getSessionStorage = function(key) {
     return sessionStorage.getItem(key);
   };
 
@@ -29,7 +31,7 @@
    * @param {String} key
    * @param {String} value
    */
-  exports.setLocalStorage = function(key, value) {
+  util.setLocalStorage = function(key, value) {
     localStorage.setItem(key, value);
   };
 
@@ -40,7 +42,7 @@
    * @param {String} key
    * @return {String}
    */
-  exports.getLocalStorage = function(key) {
+  util.getLocalStorage = function(key) {
     return localStorage.getItem(key);
   };
 })(window);
