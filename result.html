@@ -14,6 +14,7 @@
   <header>
     <span>エクスプレス予約</span>
   </header>
+  <div id="js-searchResult"></div>
 </div>
 
 <!-- script -->
@@ -25,6 +26,16 @@
 <script>
 $(function() {
 
+  var results = st.getSearchResult();
+  (function displaySearchResult(results){
+    var tmpl = _.template("<div><%- name %><%- date %><%- startTime %>〜<%- endTime %></div>");
+    var $output = $("#js-searchResult");
+    var $html = $("<div>");
+    _.each(results, function(result) {
+      $html.append(tmpl(result));
+    });
+    $output.append($html);
+  })(results);
 });
 </script>
 

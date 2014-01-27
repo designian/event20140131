@@ -39,13 +39,13 @@
     var shift_minutes = opts.shiftMinutes
 
     var mo = moment(datetime).add("minutes", shift_minutes);
-
     var results = [];
     for(var i = 0; i < end_count; i++ ){
       var m = mo.clone().add("minutes", (i *(interval * 0.2)) );
+
       results[i] = {
-        start: new SearchTimeModel(m.add("minutes")),
-        end: new SearchTimeModel(m.add("minutes", interval))
+        start : new SearchTimeModel(m),
+        end : new SearchTimeModel(m.add("minutes", interval))
       };
     }
 
