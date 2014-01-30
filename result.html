@@ -28,7 +28,9 @@ $(function() {
 
   var results = st.getSearchResult();
   (function displaySearchResult(results){
-    var tmpl = _.template("<div><%- name %><%- date %><%- startTime %>〜<%- endTime %></div>");
+    // var tmpl = _.template("<div><%- name %><%- date %><%- startTime %>〜<%- endTime %></div>");
+    var html = util.getTemplate("searchResultItem"); // js/tmpl/searchResultItem.html を取得
+    var tmpl = _.template(html); // テンプレートをコンパイル。毎回コンパイルすると大幅に速度が低下するため２回以上使うテンプレートはコンパイルして使う
     var $output = $("#js-searchResult");
     var $html = $("<div>");
     _.each(results, function(result) {

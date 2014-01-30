@@ -1,3 +1,5 @@
-Gruntfile.js
+Gruntfile.*
 package.json
+/README.md
+/Gruntconfig
 /node_modules

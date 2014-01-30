@@ -1,3 +1,4 @@
+/* require jQuery, underscore */
 (function(exports) {
   exports.util = exports.util || {};
   var util = exports.util;
@@ -45,4 +46,25 @@
   util.getLocalStorage = function(key) {
     return localStorage.getItem(key);
   };
+
+  var tmplCache = tmplCache || {};
+  util.getTemplate = function(tmplName) {
+    if(!tmplCache[tmplName]) {
+      var url = "js/tmpl/" + tmplName + ".html";
+      var tmpl;
+
+      $.ajax({
+        url: url,
+        method: "GET",
+        async: false,
+        dataType: "html"
+      }).done(function(html) {
+        tmpl = html;
+      });
+      tmplCache[tmplName] = tmpl;
+    }
+    return tmplCache[tmplName];
+  };
+
+
 })(window);
