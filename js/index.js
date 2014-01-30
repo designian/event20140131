@@ -1,11 +1,15 @@
 $(function() {
     var $form = $("#form");
-    var $serarchBtn = $("#search");
+    var $searchForward = $("#js-search-forward");
+    var $searchBackward = $("#js-search-backward");
 
-    $serarchBtn.on("click", function(){
+    $searchForward.on("click", nextStep);
+    $searchBackward.on("click",nextStep);
+    function nextStep(){
       saveSearchResult();
-      location.href = "result.html";
-    });
+      location.href = $(this).attr("data-href");
+    }
+
     function getFormValues() {
       var values = {
         year: $form.find("[name=year]").val(),
@@ -29,8 +33,6 @@ $(function() {
       var formData = getFormValues();
       var datetime = createMomentDateString(formData);
 
-      // console.log(formData);
-      // console.log(datetime);
       st.doSearchTime(datetime, {
         shiftMinutes: 6,
         endCount: 5,

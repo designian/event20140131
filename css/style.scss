@@ -6,22 +6,62 @@ html,body{
 }
 p{ margin: 0; padding: 0;}
 ul,li{list-style: none; padding: 0; margin: 0;}
+h1,h2,h3,h4,h5,h6{
+  padding: 0;
+  margin: 0;
+}
+.input-label {
+  font-size: 1.4em;
+}
 
-  .input-label {
-    font-size: 1.4em;
+.input-radio input {
+  height: 30px;
+
+}
+
+header {
+  height: 44px;
+  background-color: #ccc;
+  font-size: 1.8em;
+}
+
+select, .text-input {
+  height: 35px;
+}
+
+.content{
+  box-sizing: border-box;
+  padding: 10px;
+  h1:first-of-type{
+    border-bottom: 1px solid #000;
   }
+}
 
-  .input-radio input {
-    height: 30px;
+.btn-large{
+  width: 200px;
+  line-height: 30px;
+  font-size: 14px;
+  text-align: center;
+  margin: 10px auto;
+  display: block;
+}
 
+.mod-searchResult{
+  .mod-searchResult__btn{
+    margin-left: 10px;
+    -webkit-appearance: none;
+    background-color: #999;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    padding: 5px 10px;
+    text-align: center;
   }
+}
 
-  header {
-    height: 44px;
-    background-color: #ccc;
-    font-size: 1.8em;
-  }
-
-  select, .text-input {
-    height: 35px;
-  }
+.mod-ticket-forward,
+.mod-ticket-backward{
+  background-color: #ccc;
+  padding: 5px;
+  margin: 5px auto;
+}

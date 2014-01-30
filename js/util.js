@@ -26,6 +26,17 @@
   };
 
   /**
+   * sessionStorageから値を削除する
+   *
+   * @method removeSessionStorage
+   * @param {String} key
+   */
+  util.removeItemSessionStorage = function(key) {
+    sessionStorage.removeItem(key);
+  };
+
+
+  /**
    * localStorageに値を保存する
    *
    * @method setLocalStorage
@@ -47,10 +58,30 @@
     return localStorage.getItem(key);
   };
 
+  /**
+   * localStorageから値を削除する
+   *
+   * @method removeLocalStorage
+   * @param {String} key
+   */
+  util.removeItemLocalStorage = function(key) {
+    localStorage.removeItem(key);
+  };
+
+
   var tmplCache = tmplCache || {};
+
+  /**
+   * 外部テンプレートファイル取得
+   *
+   * @method getTemplate
+   * @param {String} tmplName
+   *
+   * return {String} tmplCache
+   */
   util.getTemplate = function(tmplName) {
     if(!tmplCache[tmplName]) {
-      var url = "js/tmpl/" + tmplName + ".js";
+      var url = "js/tmpl/" + tmplName + ".html";
       var tmpl;
 
       $.ajax({

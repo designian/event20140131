@@ -14,6 +14,16 @@
   <header>
     <span>エクスプレス予約</span>
   </header>
+  <div class="content">
+    <h1>予約確認</h1>
+    <div id="forward"></div>
+    <div>
+      <button class="btn-large" id="js-complete-forward" data-href="complete.html">この片道だけで予約する</button>
+      <button class="btn-large" onclick="location.href='input_backward.html'">帰り（往復）分も予約する</button>
+    </div>
+  </div>
+
+
 </div>
 
 <!-- script -->
@@ -24,6 +34,17 @@
 <script src="js/searchTicket.js"></script>
 <script>
 $(function() {
+
+  var forward = st.loadForward();
+  st.displayTemplate({
+    outputId: "forward",
+    templateName: "ticketForward",
+    data: forward
+  });
+  $("#js-complete-forward").on("click", function() {
+    st.deleteBackward();
+    location.href = $(this).attr("data-href");
+  });
 
 });
 </script>

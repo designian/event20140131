@@ -14,6 +14,11 @@
   <header>
     <span>エクスプレス予約</span>
   </header>
+  <div class="content">
+    <div id="forward"></div>
+    <h1>検索結果</h1>
+    <div id="js-searchResult"></div>
+  </div>
 </div>
 
 <!-- script -->
@@ -24,7 +29,7 @@
 <script src="js/searchTicket.js"></script>
 <script>
 $(function() {
-
+  st.displaySearchResult("js-searchResult", "searchResultBackward");
 });
 </script>
 
