@@ -1,6 +1,8 @@
 パイロット版プロトタイプ
 =============
 
+[http://designian.github.io/event20140131/](http://designian.github.io/event20140131/)
+
 ## ページ構成
 
 * index.html
