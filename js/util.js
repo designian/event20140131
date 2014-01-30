@@ -50,14 +50,14 @@
   var tmplCache = tmplCache || {};
   util.getTemplate = function(tmplName) {
     if(!tmplCache[tmplName]) {
-      var url = "js/tmpl/" + tmplName + ".html";
+      var url = "js/tmpl/" + tmplName + ".js";
       var tmpl;
 
       $.ajax({
         url: url,
         method: "GET",
         async: false,
-        dataType: "html"
+        dataType: "text"
       }).done(function(html) {
         tmpl = html;
       });

@@ -1,0 +1,27 @@
+html,body{
+  margin: 0;
+  padding: 0;
+  -webkit-text-adjust: 100%;
+  font-size: 14px;
+}
+p{ margin: 0; padding: 0;}
+ul,li{list-style: none; padding: 0; margin: 0;}
+
+  .input-label {
+    font-size: 1.4em;
+  }
+
+  .input-radio input {
+    height: 30px;
+
+  }
+
+  header {
+    height: 44px;
+    background-color: #ccc;
+    font-size: 1.8em;
+  }
+
+  select, .text-input {
+    height: 35px;
+  }

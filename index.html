@@ -7,58 +7,7 @@
   <!--CSS-->
   <link rel="stylesheet" type="text/css" href="css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <style>
 
-    body {
-      font-size: 14px;
-    }
-
-    .input-label {
-      font-size: 1.4em;
-    }
-
-    .input-radio input {
-      height: 30px;
-
-    }
-
-    header {
-      height: 44px;
-      background-color: #ccc;
-      font-size: 1.8em;
-    }
-
-    select, .text-input {
-      height: 35px;
-    }
-
-    .container {
-      width: 320px;
-      padding: 15px;
-      /*height: 480px;*/
-/*      background-color: #ccc;*/
-    }
-
-    #page1 {
-      /*background-color: #ccc;*/
-    }
-
-    #page2 {
-      background-color: pink;
-    }
-
-    .btn {
-      height: 44px;
-      margin: 10px;
-      width: 260px;
-      font-size: 1.6em;
-      background-color: orange
-      border-style: none;
-    }
-
-
-
-  </style>
 </head>
 <body>
 
@@ -70,81 +19,42 @@
 
   <div id="page1" class="container">
 
-<div id="form">
-  <div id="main">
-  <p class="input-label">乗車日</p>
-  <input type="hidden" name="year" value="2014">
-  <select id="month" name="month">
-    <option selected="selected" value="01">1</option>
-    <option value="02">2</option>
-    <option value="03">3</option>
-    <option value="04">4</option>
-    <option value="05">5</option>
-    <option value="06">6</option>
-    <option value="07">7</option>
-    <option value="08">8</option>
-    <option value="09">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-  </select>
-  <span class="">月</span>
+  <div id="form">
 
-  <select id="day" name="day">
-    <option value="01">1</option>
-    <option value="02">2</option>
-    <option value="03">3</option>
-    <option value="04">4</option>
-    <option value="05">5</option>
-    <option value="06">6</option>
-    <option value="07">7</option>
-    <option value="08">8</option>
-    <option value="09">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option selected="selected" value="12">12</option>
-    <option value="13">13</option>
-    <option value="14">14</option>
-    <option value="15">15</option>
-    <option value="16">16</option>
-    <option value="17">17</option>
-    <option value="18">18</option>
-    <option value="19">19</option>
-    <option value="20">20</option>
-    <option value="21">21</option>
-    <option value="22">22</option>
-    <option value="23">23</option>
-    <option value="24">24</option>
-    <option value="25">25</option>
-    <option value="26">26</option>
-    <option value="27">27</option>
-    <option value="28">28</option>
-    <option value="29">29</option>
-    <option value="30">30</option>
-    <option value="31">31</option>
-  </select>
-  <span class="">日</span>
-
-
-  <p class="input-label">時刻</p>
-
-    <select id="time" name="hour">
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
+    <p class="input-label">乗車日</p>
+    <input type="hidden" name="year" value="2014">
+    <select id="month" name="month">
+      <option selected="selected" value="01">1</option>
+      <option value="02">2</option>
+      <option value="03">3</option>
+      <option value="04">4</option>
+      <option value="05">5</option>
+      <option value="06">6</option>
+      <option value="07">7</option>
+      <option value="08">8</option>
+      <option value="09">9</option>
       <option value="10">10</option>
       <option value="11">11</option>
       <option value="12">12</option>
+    </select>
+    <span class="">月</span>
+
+    <select id="day" name="day">
+      <option value="01">1</option>
+      <option value="02">2</option>
+      <option value="03">3</option>
+      <option value="04">4</option>
+      <option value="05">5</option>
+      <option value="06">6</option>
+      <option value="07">7</option>
+      <option value="08">8</option>
+      <option value="09">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option selected="selected" value="12">12</option>
       <option value="13">13</option>
       <option value="14">14</option>
-      <option selected="selected" value="15">15</option>
+      <option value="15">15</option>
       <option value="16">16</option>
       <option value="17">17</option>
       <option value="18">18</option>
@@ -153,142 +63,171 @@
       <option value="21">21</option>
       <option value="22">22</option>
       <option value="23">23</option>
-    </select>
-    <span class="fmgh fontb">時</span>
-
-    <select id="minute" name="minute">
-      <option value="00">00</option>
-      <option value="05">05</option>
-      <option selected="selected" value="10">10</option>
-      <option value="15">15</option>
-      <option value="20">20</option>
+      <option value="24">24</option>
       <option value="25">25</option>
+      <option value="26">26</option>
+      <option value="27">27</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
       <option value="30">30</option>
-      <option value="35">35</option>
-      <option value="40">40</option>
-      <option value="45">45</option>
-      <option value="50">50</option>
-      <option value="55">55</option>
+      <option value="31">31</option>
     </select>
-    <span class="fmgh fontb">分</span>
+    <span class="">日</span>
 
-    <div class="input-radio">
-      <input type="radio" name="timeOption" value="1" checked>出発
-      <input type="radio" name="timeOption" value="2">到着
+
+    <p class="input-label">時刻</p>
+
+      <select id="time" name="hour">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option selected="selected" value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+      </select>
+      <span class="fmgh fontb">時</span>
+
+      <select id="minute" name="minute">
+        <option value="00">00</option>
+        <option value="05">05</option>
+        <option selected="selected" value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+        <option value="30">30</option>
+        <option value="35">35</option>
+        <option value="40">40</option>
+        <option value="45">45</option>
+        <option value="50">50</option>
+        <option value="55">55</option>
+      </select>
+      <span class="fmgh fontb">分</span>
+
+      <div class="input-radio">
+        <input type="radio" name="timeOption" value="1" checked>出発
+        <input type="radio" name="timeOption" value="2">到着
+      </div>
+
+
+      <p class="input-label">乗車駅</p>
+      <select name="from">
+        <option value="1">品川</option>
+        <option value="2">新横浜</option>
+        <option value="3">小田原</option>
+        <option value="4">熱海</option>
+        <option value="5">三島</option>
+        <option value="6">新富士（静岡）</option>
+        <option value="7">静岡</option>
+        <option value="8">掛川</option>
+        <option value="9">浜松</option>
+        <option value="10">豊橋</option>
+        <option value="11">三河安城</option>
+        <option value="12">名古屋</option>
+        <option value="13">岐阜羽島</option>
+        <option value="14">米原</option>
+        <option value="15">京都</option>
+        <option value="16">新大阪</option>
+        <option value="17">新神戸</option>
+        <option value="18">西明石</option>
+        <option value="19">姫路</option>
+        <option value="20">相生（兵庫）</option>
+        <option value="21">岡山</option>
+        <option value="22">新倉敷</option>
+        <option value="23">福山</option>
+        <option value="24">新尾道</option>
+        <option value="25">三原</option>
+        <option value="26">東広島</option>
+        <option value="27">広島</option>
+        <option value="28">新岩国</option>
+        <option value="29">徳山</option>
+        <option value="30">新山口</option>
+        <option value="31">厚狭</option>
+        <option value="32">新下関</option>
+        <option value="33">小倉（福岡）</option>
+        <option value="34">博多</option>
+      </select>
+
+      <p class="input-label">降車駅</p>
+      <select name="to">
+        <option value="1">品川</option>
+        <option value="2">新横浜</option>
+        <option value="3">小田原</option>
+        <option value="4">熱海</option>
+        <option value="5">三島</option>
+        <option value="6">新富士（静岡）</option>
+        <option value="7">静岡</option>
+        <option value="8">掛川</option>
+        <option value="9">浜松</option>
+        <option value="10">豊橋</option>
+        <option value="11">三河安城</option>
+        <option value="12">名古屋</option>
+        <option value="13">岐阜羽島</option>
+        <option value="14">米原</option>
+        <option value="15">京都</option>
+        <option value="16">新大阪</option>
+        <option value="17">新神戸</option>
+        <option value="18">西明石</option>
+        <option value="19">姫路</option>
+        <option value="20">相生（兵庫）</option>
+        <option value="21">岡山</option>
+        <option value="22">新倉敷</option>
+        <option value="23">福山</option>
+        <option value="24">新尾道</option>
+        <option value="25">三原</option>
+        <option value="26">東広島</option>
+        <option value="27">広島</option>
+        <option value="28">新岩国</option>
+        <option value="29">徳山</option>
+        <option value="30">新山口</option>
+        <option value="31">厚狭</option>
+        <option value="32">新下関</option>
+        <option value="33">小倉（福岡）</option>
+        <option value="34">博多</option>
+      </select>
+
+      <p class="input-label">人数</p>
+      <input type="text" size="5" class="text-input" value="0" name="people">
+      <span>人</span>
+
+      <p class="input-label">きっぷの種類</p>
+      <div class="input-radio">
+        <input type="radio" name="ticketType" value="自由席" checked>自由席
+        <input type="radio" name="ticketType" value="指定席">指定席
+        <input type="radio" name="ticketType" value="グリーン">グリーン
+      </div>
+
+      <p class="input-label">往復</p>
+      <div class="input-radio">
+        <input type="radio" name="roundTrip" value="1" checked>片道
+        <input type="radio" name="roundTrip" value="2">往復
+      </div>
+
+      <p><button class="btn" id="search">検索する</button></p>
+
     </div>
-
-
-    <p class="input-label">乗車駅</p>
-    <select name="from">
-      <option value="1">品川</option>
-      <option value="2">新横浜</option>
-      <option value="3">小田原</option>
-      <option value="4">熱海</option>
-      <option value="5">三島</option>
-      <option value="6">新富士（静岡）</option>
-      <option value="7">静岡</option>
-      <option value="8">掛川</option>
-      <option value="9">浜松</option>
-      <option value="10">豊橋</option>
-      <option value="11">三河安城</option>
-      <option value="12">名古屋</option>
-      <option value="13">岐阜羽島</option>
-      <option value="14">米原</option>
-      <option value="15">京都</option>
-      <option value="16">新大阪</option>
-      <option value="17">新神戸</option>
-      <option value="18">西明石</option>
-      <option value="19">姫路</option>
-      <option value="20">相生（兵庫）</option>
-      <option value="21">岡山</option>
-      <option value="22">新倉敷</option>
-      <option value="23">福山</option>
-      <option value="24">新尾道</option>
-      <option value="25">三原</option>
-      <option value="26">東広島</option>
-      <option value="27">広島</option>
-      <option value="28">新岩国</option>
-      <option value="29">徳山</option>
-      <option value="30">新山口</option>
-      <option value="31">厚狭</option>
-      <option value="32">新下関</option>
-      <option value="33">小倉（福岡）</option>
-      <option value="34">博多</option>
-    </select>
-
-    <p class="input-label">降車駅</p>
-    <select name="to">
-      <option value="1">品川</option>
-      <option value="2">新横浜</option>
-      <option value="3">小田原</option>
-      <option value="4">熱海</option>
-      <option value="5">三島</option>
-      <option value="6">新富士（静岡）</option>
-      <option value="7">静岡</option>
-      <option value="8">掛川</option>
-      <option value="9">浜松</option>
-      <option value="10">豊橋</option>
-      <option value="11">三河安城</option>
-      <option value="12">名古屋</option>
-      <option value="13">岐阜羽島</option>
-      <option value="14">米原</option>
-      <option value="15">京都</option>
-      <option value="16">新大阪</option>
-      <option value="17">新神戸</option>
-      <option value="18">西明石</option>
-      <option value="19">姫路</option>
-      <option value="20">相生（兵庫）</option>
-      <option value="21">岡山</option>
-      <option value="22">新倉敷</option>
-      <option value="23">福山</option>
-      <option value="24">新尾道</option>
-      <option value="25">三原</option>
-      <option value="26">東広島</option>
-      <option value="27">広島</option>
-      <option value="28">新岩国</option>
-      <option value="29">徳山</option>
-      <option value="30">新山口</option>
-      <option value="31">厚狭</option>
-      <option value="32">新下関</option>
-      <option value="33">小倉（福岡）</option>
-      <option value="34">博多</option>
-    </select>
-
-    <p class="input-label">人数</p>
-    <input type="text" size="5" class="text-input" value="0" name="people">
-    <span>人</span>
-
-    <p class="input-label">きっぷの種類</p>
-    <div class="input-radio">
-      <input type="radio" name="ticketType" value="自由席" checked>自由席
-      <input type="radio" name="ticketType" value="指定席">指定席
-      <input type="radio" name="ticketType" value="グリーン">グリーン
-    </div>
-
-    <p class="input-label">往復</p>
-    <div class="input-radio">
-      <input type="radio" name="roundTrip" value="1" checked>片道
-      <input type="radio" name="roundTrip" value="2">往復
-    </div>
-
-    <p><button class="btn" id="search">検索する</button></p>
-
-    </div>
-
   </div>
 
-    <footer>
-
-    </footer>
-
-  </div>
-
-  <div id="page2" class="container">
-
-
-  </div>
 
 </div>
+<div id="page2" class="container"></div>
 
 
 <!--Script-->
