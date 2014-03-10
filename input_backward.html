@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<section id="wrapper">
+<section id="wrapper" class="wrapper">
     <header>
       <span>おでかけ予約</span>
     </header>
@@ -216,7 +216,14 @@
           <input type="radio" name="roundTrip" value="1" checked>片道
           <input type="radio" name="roundTrip" value="2">往復
         </div>
-
+        <p class="input-label">
+          表示件数
+        </p>
+        <div class="input-radio">
+          <label><input type="radio" name="resultCounts" value="5" checked>5</label>
+          <label><input type="radio" name="resultCounts" value="10">10</label>
+          <label><input type="radio" name="resultCounts" value="20">20</label>
+        </div>
         <p><button class="btn-large" id="js-search-backward" data-href="result_backward.html">検索する</button></p>
       </div>
 

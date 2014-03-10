@@ -8,6 +8,8 @@
       weekdaysShort: ["日","月","火","水","木","金","土"],
   });
 
+
+
   /**
    * 指定した日時から検索し、結果をsessionStorageに保存する
    * 指定するdatetimeはmomentオブジェクトの初期化に使えるformatで指定する
@@ -45,10 +47,11 @@
 
       results[i] = {
         start : new SearchTimeModel(m),
-        end : new SearchTimeModel(m.add("minutes", interval))
+        end : new SearchTimeModel(m.add("minutes", interval)),
+        seatStatus: st.genSeatStatus(),
+        name: st._getTrainName()
       };
     }
-
     util.setSessionStorage("d-searchResult", JSON.stringify(results));
   };
 
@@ -81,13 +84,21 @@
     var _start = new TimeModel(time.start).getMoment();
     var _end = new TimeModel(time.end).getMoment();
     return {
-      name: "temp_name",
+      name: time.name,
       date: _start.format("M月DD日"),
       startTime: _start.format("HH:mm"),
       endTime: _end.format("HH:mm"),
-      index: opt_index ? opt_index : 0
+      index: opt_index ? opt_index : 0,
+      seatStatus: time.seatStatus
     }
   };
+
+  st._getTrainName = function() {
+    var rand = _.random(40,120);
+    var name = "のぞみ " + rand + "号（N700系）";
+    return name;
+  };
+
 
   /**
    * 保存した検索結果をhtmlに出力する
@@ -135,9 +146,11 @@
   /**
    * @private
    */
-  st.saveForward = function(index) {
+  st.saveForward = function(params) {
     var results = st.getSearchResult();
-    util.setSessionStorage(key_forward, JSON.stringify(results[index]));
+    var result = results[params.index];
+    result.seatType = params.seatType;
+    util.setSessionStorage(key_forward, JSON.stringify(result));
   };
 
   /**
@@ -156,17 +169,19 @@
    * @method preserveForward
    * @param index
    */
-  st.preserveForward = function(index) {
-    st.saveForward(index);
+  st.preserveForward = function(params) {
+    st.saveForward(params);
     location.href = "./confirm_forward.html";
   };
 
   /**
    * @private
    */
-  st.saveBackward = function(index) {
+  st.saveBackward = function(params) {
     var results = st.getSearchResult();
-    util.setSessionStorage(key_backward, JSON.stringify(results[index]));
+    var result = results[params.index];
+    result.seatType = params.seatType;
+    util.setSessionStorage(key_backward, JSON.stringify(result));
   }
 
   /**
@@ -191,10 +206,24 @@
    * @method preserveForward
    * @param index
    */
-  st.preserveBackward = function(index) {
-    st.saveBackward(index);
+  st.preserveBackward = function(params) {
+    st.saveBackward(params);
     location.href = "./confirm_backward.html";
   };
 
+  st.seatType = ["窓側", "通路側", "どちらでも"];
+  st.genSeatStatus = function() {
+    var types = [];
+    types[0] = st._genSeatState();
+    types[1] = st._genSeatState();
+    types[2] = types[0] && types[1] ? true : false;
+    return types;
+  }
+  st._genSeatState = function() {
+    return _.random(0, 1) ? true : false;
+  }
+  st.getSeatType = function(typeNum){
+    return st.seatType[typeNum];
+  }
 
 }(window));
