@@ -46,15 +46,22 @@ select, .text-input {
   margin: 10px auto;
   display: block; }
 
-.mod-searchResult .mod-searchResult__btn {
-  margin-left: 10px;
-  -webkit-appearance: none;
-  background-color: #999;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  padding: 5px 10px;
-  text-align: center; }
+.mod-searchResult {
+  position: relative; }
+  .mod-searchResult .mod-searchResult__btn {
+    margin-left: 10px;
+    -webkit-appearance: none;
+    background-color: #999;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    padding: 5px 10px;
+    text-align: center; }
+  .mod-searchResult .mod-searchResult__seatType {
+    position: absolute;
+    left: 120px;
+    top: 50%;
+    margin-top: -22px; }
 
 .mod-ticket-forward,
 .mod-ticket-backward {

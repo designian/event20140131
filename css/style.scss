@@ -47,6 +47,7 @@ select, .text-input {
 }
 
 .mod-searchResult{
+  position: relative;
   .mod-searchResult__btn{
     margin-left: 10px;
     -webkit-appearance: none;
@@ -56,6 +57,12 @@ select, .text-input {
     color: #fff;
     padding: 5px 10px;
     text-align: center;
+  }
+  .mod-searchResult__seatType{
+    position: absolute;
+    left: 120px;
+    top: 50%;
+    margin-top: -22px;
   }
 }
 
