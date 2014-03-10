@@ -33,7 +33,6 @@ $(function() {
     function saveSearchResult() {
       var formData = getFormValues();
       var datetime = createMomentDateString(formData);
-      debugger
       st.doSearchTime(datetime, {
         shiftMinutes: 6,
         endCount: formData.resultCounts,
