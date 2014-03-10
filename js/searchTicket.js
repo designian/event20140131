@@ -8,6 +8,8 @@
       weekdaysShort: ["日","月","火","水","木","金","土"],
   });
 
+
+
   /**
    * 指定した日時から検索し、結果をsessionStorageに保存する
    * 指定するdatetimeはmomentオブジェクトの初期化に使えるformatで指定する
@@ -45,10 +47,10 @@
 
       results[i] = {
         start : new SearchTimeModel(m),
-        end : new SearchTimeModel(m.add("minutes", interval))
+        end : new SearchTimeModel(m.add("minutes", interval)),
+        seatStatus: st.genSeatStatus()
       };
     }
-
     util.setSessionStorage("d-searchResult", JSON.stringify(results));
   };
 
@@ -85,7 +87,8 @@
       date: _start.format("M月DD日"),
       startTime: _start.format("HH:mm"),
       endTime: _end.format("HH:mm"),
-      index: opt_index ? opt_index : 0
+      index: opt_index ? opt_index : 0,
+      seatStatus: time.seatStatus
     }
   };
 
@@ -121,6 +124,7 @@
     var $html = $("<span>");
     if(opts.data.length){
       _.each(opts.data, function(item) {
+        console.log(item);
         $html.append(template(item));
       });
     }else{
@@ -135,9 +139,11 @@
   /**
    * @private
    */
-  st.saveForward = function(index) {
+  st.saveForward = function(params) {
     var results = st.getSearchResult();
-    util.setSessionStorage(key_forward, JSON.stringify(results[index]));
+    var result = results[params.index];
+    result.seatType = params.seatType;
+    util.setSessionStorage(key_forward, JSON.stringify(result));
   };
 
   /**
@@ -156,8 +162,8 @@
    * @method preserveForward
    * @param index
    */
-  st.preserveForward = function(index) {
-    st.saveForward(index);
+  st.preserveForward = function(params) {
+    st.saveForward(params);
     location.href = "./confirm_forward.html";
   };
 
@@ -196,5 +202,19 @@
     location.href = "./confirm_backward.html";
   };
 
+  st.seatType = ["窓側", "通路側", "どちらでも"];
+  st.genSeatStatus = function() {
+    var types = [];
+    for(var i = 0; i < 3 ; i++) {
+      types[i] = st._genSeatState();
+    }
+    return types;
+  }
+  st._genSeatState = function() {
+    return _.random(0, 1) ? true : false;
+  }
+  st.getSeatType = function(typeNum){
+    return st.seatType[typeNum];
+  }
 
 }(window));
