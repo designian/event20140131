@@ -61,3 +61,21 @@ select, .text-input {
   background-color: #ccc;
   padding: 5px;
   margin: 5px auto; }
+
+.mod-seatType {
+  -webkit-appearance: none;
+  border: none;
+  background-color: #DDD;
+  color: #999;
+  border: 1px solid #999;
+  width: 44px;
+  min-height: 44px;
+  font-size: 10px;
+  vertical-align: top;
+  border-radius: 3px;
+  pointer-events: none; }
+  .mod-seatType.is-available {
+    color: #E9E9E9;
+    border-color: #575757;
+    background-color: #929292;
+    pointer-events: auto; }
