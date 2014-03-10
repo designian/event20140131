@@ -48,7 +48,8 @@
       results[i] = {
         start : new SearchTimeModel(m),
         end : new SearchTimeModel(m.add("minutes", interval)),
-        seatStatus: st.genSeatStatus()
+        seatStatus: st.genSeatStatus(),
+        name: st._getTrainName()
       };
     }
     util.setSessionStorage("d-searchResult", JSON.stringify(results));
@@ -83,7 +84,7 @@
     var _start = new TimeModel(time.start).getMoment();
     var _end = new TimeModel(time.end).getMoment();
     return {
-      name: "temp_name",
+      name: time.name,
       date: _start.format("M月DD日"),
       startTime: _start.format("HH:mm"),
       endTime: _end.format("HH:mm"),
@@ -91,6 +92,13 @@
       seatStatus: time.seatStatus
     }
   };
+
+  st._getTrainName = function() {
+    var rand = _.random(40,120);
+    var name = "のぞみ " + rand + "号（N700系）";
+    return name;
+  };
+
 
   /**
    * 保存した検索結果をhtmlに出力する
@@ -124,7 +132,6 @@
     var $html = $("<span>");
     if(opts.data.length){
       _.each(opts.data, function(item) {
-        console.log(item);
         $html.append(template(item));
       });
     }else{
@@ -207,9 +214,9 @@
   st.seatType = ["窓側", "通路側", "どちらでも"];
   st.genSeatStatus = function() {
     var types = [];
-    for(var i = 0; i < 3 ; i++) {
-      types[i] = st._genSeatState();
-    }
+    types[0] = st._genSeatState();
+    types[1] = st._genSeatState();
+    types[2] = types[0] && types[1] ? true : false;
     return types;
   }
   st._genSeatState = function() {
