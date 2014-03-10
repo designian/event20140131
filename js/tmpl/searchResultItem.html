@@ -2,10 +2,10 @@
   <h3><%- name %></h3>
   <p><%- date %>
   <p><%- startTime %> 〜 <%- endTime %>
-    <!-- <button class="mod-searchResult__btn" onclick="st.preserveForward(<%= index %>)">仮抑えする</button> -->
+  <div class="mod-searchResult__seatType">
     <button class="mod-seatType <% if(seatStatus[0]) { %> is-available <% } %>" onclick="st.preserveForward({ index:<%= index %>, seatType: 0})">窓際</button>
     <button class="mod-seatType <% if(seatStatus[1]) { %> is-available <% } %>" onclick="st.preserveForward({ index:<%= index %>, seatType: 1})">通路側</button>
     <button class="mod-seatType <% if(seatStatus[2]) { %> is-available <% } %>" onclick="st.preserveForward({ index:<%= index %>, seatType: 2})">どちらでも</button>
-
+  </div>
   <hr>
 </div>
