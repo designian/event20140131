@@ -3,6 +3,7 @@ html,body{
   padding: 0;
   -webkit-text-adjust: 100%;
   font-size: 14px;
+  font-family: 'Hiragino Kaku Gothic ProN',Meiryo,sans-serif;
 }
 p{ margin: 0; padding: 0;}
 ul,li{list-style: none; padding: 0; margin: 0;}
@@ -10,12 +11,26 @@ h1,h2,h3,h4,h5,h6{
   padding: 0;
   margin: 0;
 }
+.wrapper{
+  width: 320px;
+  margin: 0 auto;
+}
 .input-label {
   font-size: 1.4em;
 }
 
-.input-radio input {
-  height: 30px;
+.input-radio {
+  padding: 10px 0;
+
+  label{
+    vertical-align: middle;
+  }
+  input[type="radio"]{
+    vertical-align: middle;
+    margin-right: 5px;
+    height: 20px;
+    width: 20px;
+  }
 
 }
 
@@ -31,7 +46,7 @@ select, .text-input {
 
 .content{
   box-sizing: border-box;
-  padding: 10px;
+  padding: 5px;
   h1:first-of-type{
     border-bottom: 1px solid #000;
   }
@@ -48,6 +63,12 @@ select, .text-input {
 
 .mod-searchResult{
   position: relative;
+  padding: 10px 0;
+  border-bottom: 1px solid #000;
+  .mod-searchResult__name{
+    margin-bottom: 5px;
+  }
+
   .mod-searchResult__btn{
     margin-left: 10px;
     -webkit-appearance: none;
@@ -58,11 +79,18 @@ select, .text-input {
     padding: 5px 10px;
     text-align: center;
   }
+  .mod-searchResult__detail{
+    display: inline-block;
+    vertical-align: middle;
+  }
   .mod-searchResult__seatType{
-    position: absolute;
-    left: 120px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 30px;
+    // position: absolute;
+    right: 5px;
     top: 50%;
-    margin-top: -22px;
+    // margin-top: -22px;
   }
 }
 
@@ -73,14 +101,17 @@ select, .text-input {
   margin: 5px auto;
 }
 
+$seatType: 42px;
 .mod-seatType{
   -webkit-appearance: none;
   border: none;
+  padding: 0;
+  text-align: center;
   background-color: #DDD;
   color: #999;
   border: 1px solid #999;
-  width: 44px;
-  min-height: 44px;
+  width: $seatType;
+  min-height: $seatType;
   font-size: 10px;
   vertical-align: top;
   border-radius: 3px;
