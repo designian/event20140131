@@ -170,9 +170,11 @@
   /**
    * @private
    */
-  st.saveBackward = function(index) {
+  st.saveBackward = function(params) {
     var results = st.getSearchResult();
-    util.setSessionStorage(key_backward, JSON.stringify(results[index]));
+    var result = results[params.index];
+    result.seatType = params.seatType;
+    util.setSessionStorage(key_backward, JSON.stringify(result));
   }
 
   /**
@@ -197,8 +199,8 @@
    * @method preserveForward
    * @param index
    */
-  st.preserveBackward = function(index) {
-    st.saveBackward(index);
+  st.preserveBackward = function(params) {
+    st.saveBackward(params);
     location.href = "./confirm_backward.html";
   };
 
