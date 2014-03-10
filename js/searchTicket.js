@@ -37,6 +37,7 @@
     }, _opts);
 
     var end_count = opts.endCount;
+    debugger
     var interval = opts.interval;
     var shift_minutes = opts.shiftMinutes
 

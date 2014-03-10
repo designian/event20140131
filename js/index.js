@@ -21,7 +21,8 @@ $(function() {
         from: $form.find("[name=from][vale="+ $form.find("[name=from]").val() +"]"),
         to: $form.find("[name=to][vale="+ $form.find("[name=to]").val() +"]"),
         people: $form.find("[name=people]").val(),
-        rountTrip: $form.find("[name=roundTrip]")
+        rountTrip: $form.find("[name=roundTrip]"),
+        resultCounts: $form.find("[name=resultCounts]:checked").val()
       }
       return values;
     }
@@ -32,10 +33,10 @@ $(function() {
     function saveSearchResult() {
       var formData = getFormValues();
       var datetime = createMomentDateString(formData);
-
+      debugger
       st.doSearchTime(datetime, {
         shiftMinutes: 6,
-        endCount: 5,
+        endCount: formData.resultCounts,
         interval: 150
       });
     }
