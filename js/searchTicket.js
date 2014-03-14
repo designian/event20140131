@@ -32,7 +32,6 @@
 
     var opts = _.extend({
       shiftMinutes: 6,
-      endCount: 3,
       interval: 150
     }, _opts);
 
@@ -42,17 +41,28 @@
 
     var mo = moment(datetime).add("minutes", shift_minutes);
     var results = [];
-    for(var i = 0; i < end_count; i++ ){
-      var m = mo.clone().add("minutes", (i *(interval * 0.2)) );
+    var total = 1000;
 
-      results[i] = {
+    for(var i = 0, j = 1, limit = total/2 ; i < limit; i++, j++ ){
+      var m = mo.clone().add("minutes", (i *(interval * 0.2)) );
+      var m2 = mo.clone().subtract("minutes", (j *(interval * 0.2)) );
+
+
+      results[limit+i] = {
         start : new SearchTimeModel(m),
         end : new SearchTimeModel(m.add("minutes", interval)),
         seatStatus: st.genSeatStatus(),
         name: st._getTrainName()
       };
+      results[limit-j] = {
+        end : new SearchTimeModel(m2),
+        start : new SearchTimeModel(m2.subtract("minutes", interval)),
+        seatStatus: st.genSeatStatus(),
+        name: st._getTrainName()
+      };
     }
     util.setSessionStorage("d-searchResult", JSON.stringify(results));
+    util.setSessionStorage("d-searchResult-count", _opts.endCount)
   };
 
   /**
@@ -61,43 +71,54 @@
    * @method getSearchResult
    * return {Array}
    */
-  st.getSearchResult = function(){
-
+  st.getSearchResult = function(opts,is_all){
     var times = JSON.parse(util.getSessionStorage("d-searchResult"));
+    opts = _.extend({
+      index: 0,
+      count: 5
+    }, opts);
 
-    return _.map(times, function(time, index) {
-      return st.convertTimeModel(time, index);
-    });
-  };
-
-  st.convertTimeModel = function(time, opt_index) {
-    var TimeModel = function(time) {
-      this.year    = time.year;
-      this.month   = time.month;
-      this.day     = time.date;
-      this.hour    = time.hour;
-      this.minutes = time.minutes;
-      this.getMoment = function(){
-        return moment(this);
-      }
-    };
-    var _start = new TimeModel(time.start).getMoment();
-    var _end = new TimeModel(time.end).getMoment();
-    return {
-      name: time.name,
-      date: _start.format("M月DD日"),
-      startTime: _start.format("HH:mm"),
-      endTime: _end.format("HH:mm"),
-      index: opt_index ? opt_index : 0,
-      seatStatus: time.seatStatus
+    if(is_all){
+      return _.map(times, function(time, index) {
+        return st._convertTimeModel(time, index);
+      });
+    }
+    else{
+      times = times.slice( 500+opts.index, 500+opts.index + parseInt(opts.count));
+      return _.map(times, function(time, index) {
+        return st._convertTimeModel(time, 500+opts.index + index);
+      });
     }
   };
 
-  st._getTrainName = function() {
-    var rand = _.random(40,120);
-    var name = "のぞみ " + rand + "号（N700系）";
-    return name;
-  };
+    st._convertTimeModel = function(time, opt_index) {
+      var TimeModel = function(time) {
+        this.year    = time.year;
+        this.month   = time.month;
+        this.day     = time.date;
+        this.hour    = time.hour;
+        this.minutes = time.minutes;
+        this.getMoment = function(){
+          return moment(this);
+        }
+      };
+      var _start = new TimeModel(time.start).getMoment();
+      var _end = new TimeModel(time.end).getMoment();
+      return {
+        name: time.name,
+        date: _start.format("M月DD日"),
+        startTime: _start.format("HH:mm"),
+        endTime: _end.format("HH:mm"),
+        index: opt_index ? opt_index : 0,
+        seatStatus: time.seatStatus
+      }
+    };
+
+    st._getTrainName = function() {
+      var rand = _.random(40,120);
+      var name = "のぞみ " + rand + "号（N700系）";
+      return name;
+    };
 
 
   /**
@@ -107,14 +128,16 @@
    * @param {String} outputId HTMLのidを指定
    * @param {String} templateName /js/tmpl/以下にあるファイルの拡張子を除いた名前
    */
-  st.displaySearchResult = function(outputId, templateName) {
-    var results = st.getSearchResult();
+  st.displaySearchResult = function(opts) {
+    var results = st.getSearchResult(opts);
     st.displayTemplate({
-      "outputId": outputId,
-      "templateName": templateName,
+      "outputId": opts.outputId,
+      "templateName": opts.templateName,
       "data": results
     });
   };
+
+  // st.paginate
 
   /**
    * 指定したtemplateを表示する
@@ -147,7 +170,7 @@
    * @private
    */
   st.saveForward = function(params) {
-    var results = st.getSearchResult();
+    var results = st.getSearchResult({},true);
     var result = results[params.index];
     result.seatType = params.seatType;
     util.setSessionStorage(key_forward, JSON.stringify(result));
@@ -178,7 +201,7 @@
    * @private
    */
   st.saveBackward = function(params) {
-    var results = st.getSearchResult();
+    var results = st.getSearchResult({},true);
     var result = results[params.index];
     result.seatType = params.seatType;
     util.setSessionStorage(key_backward, JSON.stringify(result));
