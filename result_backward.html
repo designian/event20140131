@@ -18,6 +18,8 @@
     <div id="forward"></div>
     <h1>検索結果</h1>
     <div id="js-searchResult"></div>
+    <button id="prev">prev</button>
+    <button id="next">next</button>
   </div>
 </div>
 
@@ -29,7 +31,41 @@
 <script src="js/searchTicket.js"></script>
 <script>
 $(function() {
-  st.displaySearchResult("js-searchResult", "searchResultBackward");
+
+  var outputId = "js-searchResult";
+  var templateName = "searchResultBackward";
+  var search_index = 0;
+  var search_count =  parseInt(util.getSessionStorage("d-searchResult-count"));
+
+  st.displaySearchResult({
+    outputId: outputId,
+    templateName: templateName,
+    index: search_index,
+    count: search_count
+  });
+
+  $("#next").on("click", function() {
+    search_index = search_index + search_count;
+    $("#"+outputId).html("");
+    st.displaySearchResult({
+      outputId: outputId,
+      templateName: templateName,
+      index: search_index,
+      count: search_count
+    });
+  });
+
+  $("#prev").on("click", function() {
+    search_index = search_index - search_count;
+    $("#"+outputId).html("");
+    st.displaySearchResult({
+      outputId: outputId,
+      templateName: templateName,
+      index: search_index,
+      count: search_count
+    });
+  });
+
 });
 </script>
 
