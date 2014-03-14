@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<section id="wrapper">
+<section id="wrapper" class="wrapper">
     <header>
       <span>おでかけ予約</span>
     </header>
@@ -201,22 +201,29 @@
         </select>
 
         <p class="input-label">人数</p>
-        <input type="text" size="5" class="text-input" value="0" name="people">
+        <input type="text" size="5" class="text-input" min="1" value="1" name="people">
         <span>人</span>
 
-        <p class="input-label">きっぷの種類</p>
+<!--         <p class="input-label">きっぷの種類</p>
         <div class="input-radio">
           <input type="radio" name="ticketType" value="自由席" checked>自由席
           <input type="radio" name="ticketType" value="指定席">指定席
           <input type="radio" name="ticketType" value="グリーン">グリーン
-        </div>
+        </div> -->
 
-        <p class="input-label">往復</p>
+<!--         <p class="input-label">往復</p>
         <div class="input-radio" display="none">
           <input type="radio" name="roundTrip" value="1" checked>片道
           <input type="radio" name="roundTrip" value="2">往復
+        </div> -->
+        <p class="input-label">
+          表示件数
+        </p>
+        <div class="input-radio">
+          <label><input type="radio" name="resultCounts" value="5" checked>5</label>
+          <label><input type="radio" name="resultCounts" value="10">10</label>
+          <label><input type="radio" name="resultCounts" value="20">20</label>
         </div>
-
         <p><button class="btn-large" id="js-search-backward" data-href="result_backward.html">検索する</button></p>
       </div>
 

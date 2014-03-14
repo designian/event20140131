@@ -2,7 +2,8 @@ html, body {
   margin: 0;
   padding: 0;
   -webkit-text-adjust: 100%;
-  font-size: 14px; }
+  font-size: 14px;
+  font-family: 'Hiragino Kaku Gothic ProN',Meiryo,sans-serif; }
 
 p {
   margin: 0;
@@ -17,11 +18,22 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
   margin: 0; }
 
+.wrapper {
+  width: 320px;
+  margin: 0 auto; }
+
 .input-label {
   font-size: 1.4em; }
 
-.input-radio input {
-  height: 30px; }
+.input-radio {
+  padding: 10px 0; }
+  .input-radio label {
+    vertical-align: middle; }
+  .input-radio input[type="radio"] {
+    vertical-align: middle;
+    margin-right: 5px;
+    height: 20px;
+    width: 20px; }
 
 header {
   height: 44px;
@@ -34,7 +46,7 @@ select, .text-input {
 .content {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 10px; }
+  padding: 5px; }
   .content h1:first-of-type {
     border-bottom: 1px solid #000; }
 
@@ -46,18 +58,53 @@ select, .text-input {
   margin: 10px auto;
   display: block; }
 
-.mod-searchResult .mod-searchResult__btn {
-  margin-left: 10px;
-  -webkit-appearance: none;
-  background-color: #999;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  padding: 5px 10px;
-  text-align: center; }
+.mod-searchResult {
+  position: relative;
+  padding: 10px 0;
+  border-bottom: 1px solid #000; }
+  .mod-searchResult .mod-searchResult__name {
+    margin-bottom: 5px; }
+  .mod-searchResult .mod-searchResult__btn {
+    margin-left: 10px;
+    -webkit-appearance: none;
+    background-color: #999;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    padding: 5px 10px;
+    text-align: center; }
+  .mod-searchResult .mod-searchResult__detail {
+    display: inline-block;
+    vertical-align: middle; }
+  .mod-searchResult .mod-searchResult__seatType {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 30px;
+    right: 5px;
+    top: 50%; }
 
 .mod-ticket-forward,
 .mod-ticket-backward {
   background-color: #ccc;
   padding: 5px;
   margin: 5px auto; }
+
+.mod-seatType {
+  -webkit-appearance: none;
+  border: none;
+  padding: 0;
+  text-align: center;
+  background-color: #DDD;
+  color: #999;
+  border: 1px solid #999;
+  width: 42px;
+  min-height: 42px;
+  font-size: 10px;
+  vertical-align: top;
+  border-radius: 3px;
+  pointer-events: none; }
+  .mod-seatType.is-available {
+    color: #E9E9E9;
+    border-color: #575757;
+    background-color: #929292;
+    pointer-events: auto; }

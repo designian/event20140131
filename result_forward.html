@@ -15,9 +15,10 @@
     <span>エクスプレス予約</span>
   </header>
   <div class="content">
-    <div id="forward"></div>
     <h1>検索結果</h1>
-    <div id="js-searchResult"></div>
+    <div id="js-searchResult">
+
+    </div>
     <button id="prev">prev</button>
     <button id="next">next</button>
   </div>
@@ -31,9 +32,8 @@
 <script src="js/searchTicket.js"></script>
 <script>
 $(function() {
-
   var outputId = "js-searchResult";
-  var templateName = "searchResultBackward";
+  var templateName = "searchResultItem";
   var search_index = 0;
   var search_count =  parseInt(util.getSessionStorage("d-searchResult-count"));
 
