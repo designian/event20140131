@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Usage searchTicket.js</title>
+</head>
+<body>
+
+<div id="test">
+
+</div>
+
+<script src="js/lib/jquery-1.10.2.js"></script>
+<script src="js/lib/moment-with-langs.min.js"></script>
+<script src="js/lib/underscore-min.js"></script>
+<script src="js/util.js"></script>
+<script src="js/searchTicket.js"></script>
+<script>
+$(function(){
+
+  // 日時を指定してdoSearchTimeを実行
+  st.doSearchTime("2013-01-26T15:30", {
+    shiftMinutes: 6, // 最初の一件の出発時間(分)をずらす
+    endCount: 5, // 表示件数
+    interval: 150 // 出発と到着時間の差
+  });
+
+  // doSearchTimeの結果を取得する
+  var results = st.getSearchResult();
+
+  // 結果を表示する関数を定義して実行する
+  (function displaySearchResult(results){
+    var tmpl = _.template("<%- name %><%- date %><%- startTime %><%- endTime %>");
+
+    _.each(results, function(result) {
+      $("#test").append(tmpl(result));
+      $("#test").append("<br>");
+    });
+  })(results);
+
+
+});
+</script>
+</body>
+</html>
