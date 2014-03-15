@@ -50,6 +50,11 @@ select, .text-input {
   .content h1:first-of-type {
     border-bottom: 1px solid #000; }
 
+.amount {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: right; }
+
 .btn-large {
   width: 200px;
   line-height: 30px;

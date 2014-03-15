@@ -69,9 +69,33 @@
         name: st._getTrainName()
       };
     }
-    util.setSessionStorage("d-searchResult-roundTrip", _opts.roundTrip)
+
+
+    if(_opts.people) {
+      st.calcAmount(_opts.people);
+    }
+    util.setSessionStorage("d-searchResult-roundTrip", _opts.roundTrip);
     util.setSessionStorage("d-searchResult", JSON.stringify(results));
     util.setSessionStorage("d-searchResult-count", _opts.endCount)
+  };
+
+  var key_amount = "d-amount";
+  st.calcAmount = function(peopleCount) {
+    var ticketAmount = 15850;
+    var amount;
+
+    if(util.getSessionStorage(key_amount)) {
+      amount = parseInt(util.getSessionStorage(key_amount));
+    }
+    else {
+      amount = 0;
+    }
+    amount = amount + (parseInt(peopleCount) * ticketAmount);
+
+    util.setSessionStorage(key_amount, amount);
+  };
+  st.getAmount = function() {
+    return util.getSessionStorage(key_amount);
   };
 
   /**
@@ -237,7 +261,13 @@
    */
   st.preserveForward = function(params) {
     st.saveForward(params);
-    location.href = "./confirm_forward.html";
+    var roundTrip = parseInt(util.getSessionStorage("d-searchResult-roundTrip"));
+    if(roundTrip) {
+      location.href = "./search_backward.html";
+    }
+    else {
+      location.href = "./confirm_forward.html";
+    }
   };
 
   /**

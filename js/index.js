@@ -37,7 +37,8 @@ $(function() {
         shiftMinutes: 6,
         endCount: formData.resultCounts,
         interval: 150,
-        roundTrip: formData.roundTrip
+        roundTrip: formData.roundTrip,
+        people: formData.people
       });
     }
 

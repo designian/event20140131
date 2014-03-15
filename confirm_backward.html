@@ -16,10 +16,13 @@
   </header>
   <div class="content">
     <h1>予約確認</h1>
+    <p>行き</p>
     <div id="forward"></div>
+    <p>帰り</p>
     <div id="backward"></div>
+    <div id="amount" class="amount"></div>
     <div>
-      <button class="btn-large" onclick="location.href='complete.html'">予約確定</button>
+      <button class="btn-large" onclick="location.href='complete_backward.html'">購入</button>
     </div>
   </div>
 
@@ -52,7 +55,7 @@ $(function() {
       data: backward
     });
   }
-
+  $("#amount").html("¥"+util.getSessionStorage("d-amount"));
 });
 </script>
 
