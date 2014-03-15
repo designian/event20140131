@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>予約完了</title>
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+
+<div id="wrapper" class="wrapper">
+  <header>
+    <span>エクスプレス予約</span>
+  </header>
+  <div class="content">
+    <h1>完了</h1>
+    <p>行き</p>
+    <div id="forward"></div>
+    <p>帰り</p>
+    <div id="backward"></div>
+    <div id="amount" class="amount"></div>
+  </div>
+</div>
+
+<!-- script -->
+<script src="js/lib/jquery-1.10.2.js"></script>
+<script src="js/lib/moment-with-langs.min.js"></script>
+<script src="js/lib/underscore-min.js"></script>
+<script src="js/util.js"></script>
+<script src="js/searchTicket.js"></script>
+<script>
+$(function() {
+
+  var forward = st.loadForward();
+  if(forward){
+    st.displayTemplate({
+      outputId: "forward",
+      templateName: "ticketForward",
+      data: forward
+    });
+  }
+
+  var backward = st.loadBackward();
+  if(backward){
+    st.displayTemplate({
+      outputId: "backward",
+      templateName: "ticketBackward",
+      data: backward
+    });
+  }
+
+  $("#amount").html("¥"+util.getSessionStorage("d-amount"));
+});
+</script>
+
+</body>
+</html>
