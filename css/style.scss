@@ -123,3 +123,26 @@ $seatType: 42px;
     pointer-events: auto;
   }
 }
+
+.mod-paginate{
+  padding: 5px;
+  text-align: center;
+  .mod-paginate-btn{
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    margin: 5px 10px;
+    padding:0;
+    &.is-prev{
+      &:before{
+        content: "<";
+      }
+    }
+    &.is-next{
+      &:before{
+        content: ">";
+      }
+    }
+  }
+}

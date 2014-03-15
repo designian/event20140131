@@ -43,10 +43,18 @@
     var results = [];
     var total = 1000;
 
-    for(var i = 0, j = 1, limit = total/2 ; i < limit; i++, j++ ){
-      var m = mo.clone().add("minutes", (i *(interval * 0.2)) );
-      var m2 = mo.clone().subtract("minutes", (j *(interval * 0.2)) );
+    for(var i = 0, j = 1, cnt =0, limit = total/2 ; i < limit; i++, j++, cnt++ ){
 
+      var tempTime = mo.clone().add("minutes",(cnt *(interval * 0.2)) );
+      var tempHour = tempTime.get("hours");
+      if( 0 < tempHour && tempHour < 4 ) {
+        mo = tempTime.clone().add("minutes", 180);
+        cnt = 0;
+      }
+
+
+      var m = mo.clone().add("minutes", (cnt *(interval * 0.2)) );
+      var m2 = mo.clone().subtract("minutes", (cnt *(interval * 0.2)) );
 
       results[limit+i] = {
         start : new SearchTimeModel(m),
@@ -61,6 +69,7 @@
         name: st._getTrainName()
       };
     }
+    util.setSessionStorage("d-searchResult-roundTrip", _opts.roundTrip)
     util.setSessionStorage("d-searchResult", JSON.stringify(results));
     util.setSessionStorage("d-searchResult-count", _opts.endCount)
   };
@@ -129,6 +138,7 @@
    * @param {String} templateName /js/tmpl/以下にあるファイルの拡張子を除いた名前
    */
   st.displaySearchResult = function(opts) {
+    opts.count = parseInt(util.getSessionStorage("d-searchResult-count"));
     var results = st.getSearchResult(opts);
     st.displayTemplate({
       "outputId": opts.outputId,
@@ -137,7 +147,40 @@
     });
   };
 
-  // st.paginate
+  st.searchIndex = 0;
+  /**
+   * @param {Object} opts
+   *   opts.outputId
+   *   opts.templateName
+   *   opts.searchIndex
+   *   opts.searchCount
+   */
+  st.paginatePrev = function(opts) {
+    opts.count =  parseInt(util.getSessionStorage("d-searchResult-count"));
+    st.searchIndex = st.searchIndex - opts.count;
+    opts.index = st.searchIndex;
+    $("#"+opts.outputId).html("");
+    st.displaySearchResult(opts);
+    scrollTo(0,0);
+  };
+
+
+  /**
+   * @param {Object} opts
+   *   opts.outputId
+   *   opts.templateName
+   *   opts.searchIndex
+   *   opts.searchCount
+   */
+  st.paginateNext = function(opts) {
+    opts.count =  parseInt(util.getSessionStorage("d-searchResult-count"));
+    st.searchIndex = st.searchIndex + opts.count;
+    opts.index = st.searchIndex;
+    $("#"+opts.outputId).html("");
+    st.displaySearchResult(opts);
+    scrollTo(0,0);
+  };
+
 
   /**
    * 指定したtemplateを表示する
