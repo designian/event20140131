@@ -51,7 +51,11 @@ select, .text-input {
     border-bottom: 1px solid #000;
   }
 }
-
+.amount{
+  font-size: 20px;
+  font-weight: 600;
+  text-align: right;
+}
 .btn-large{
   width: 200px;
   line-height: 30px;
@@ -121,5 +125,28 @@ $seatType: 42px;
     border-color: #575757;
     background-color: #929292;
     pointer-events: auto;
+  }
+}
+
+.mod-paginate{
+  padding: 5px;
+  text-align: center;
+  .mod-paginate-btn{
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    margin: 5px 10px;
+    padding:0;
+    &.is-prev{
+      &:before{
+        content: "<";
+      }
+    }
+    &.is-next{
+      &:before{
+        content: ">";
+      }
+    }
   }
 }

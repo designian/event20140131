@@ -18,8 +18,10 @@
     <div id="forward"></div>
     <h1>検索結果</h1>
     <div id="js-searchResult"></div>
-    <button id="prev">prev</button>
-    <button id="next">next</button>
+    <div class="mod-paginate">
+      <button id="prev" class="mod-paginate-btn is-prev"></button>
+      <button id="next" class="mod-paginate-btn is-next"></button>
+    </div>
   </div>
 </div>
 
@@ -40,29 +42,20 @@ $(function() {
   st.displaySearchResult({
     outputId: outputId,
     templateName: templateName,
-    index: search_index,
-    count: search_count
+    index: 0
   });
 
   $("#next").on("click", function() {
-    search_index = search_index + search_count;
-    $("#"+outputId).html("");
-    st.displaySearchResult({
+    st.paginateNext({
       outputId: outputId,
-      templateName: templateName,
-      index: search_index,
-      count: search_count
+      templateName: templateName
     });
   });
 
   $("#prev").on("click", function() {
-    search_index = search_index - search_count;
-    $("#"+outputId).html("");
-    st.displaySearchResult({
+    st.paginatePrev({
       outputId: outputId,
-      templateName: templateName,
-      index: search_index,
-      count: search_count
+      templateName: templateName
     });
   });
 
