@@ -22,16 +22,38 @@ $(function() {
         to: $form.find("[name=to][vale="+ $form.find("[name=to]").val() +"]"),
         people: $form.find("[name=people]").val(),
         roundTrip: $form.find("[name=roundTrip]:checked").val(),
-        resultCounts: $form.find("[name=resultCounts]:checked").val()
+        resultCounts: $form.find("[name=resultCounts]:checked").val(),
+        timeOption: $form.find("[name=timeOption]:checked").val()
       }
       return values;
     }
-    function createMomentDateString(formData){
-      var fd = formData;
+    function createMomentDateString(fd){
       return fd.year + "-" + fd.month + "-" + fd.day + "T" + fd.hour + ":" + fd.minute;
     }
     function saveSearchResult() {
       var formData = getFormValues();
+
+      switch(formData.timeOption) {
+        case "1":
+          break;
+        case "2":
+          break;
+        case "3":
+          formData.hour = "04";
+          formData.minute = "30";
+          break;
+        case "4":
+          formData.hour = "00";
+          formData.minute = "50";
+          break;
+        case "5":
+          var d = new Date();
+          formData.year = d.getFullYear();
+          formData.month = ("00" + (d.getMonth()+1) ).slice(-2);
+          formData.day = ("00" + d.getDate()).slice(-2);
+          formData.hour = ("00" + d.getHours()).slice(-2);
+          formData.minute = ("00" + d.getMinutes()).slice(-2);
+      }
       var datetime = createMomentDateString(formData);
       st.doSearchTime(datetime, {
         shiftMinutes: 6,
