@@ -6,19 +6,21 @@
 ## ページ構成
 
 * index.html
-  * 検索フォーム
-* result.html
-  * 検索結果
-* confirm_foward.html
-  * 往路予約確認
-* input_backward.html
-  * 復路検索
-* result_backward.html
-  * 復路検索結果
-* confirm_backward.html
-  * 往復路予約確認
+  * 検索フォーム（行き）
+* result_forward.html
+  * 検索結果（行き）
+* confirm_forward.html
+  * 確認（行き）
 * complete.html
-  * 予約完了
+  * 完了（行き）
+* search_backward.html
+  * 検索フォーム（往路）
+* result_backward.html
+  * 検索結果（往路）
+* confirm_backward.html
+  * 確認（往復）
+* complete_backward.html
+  * 完了（往復）
 
 ## フォルダ構成
 
@@ -45,9 +47,12 @@
 
 ## 使用ライブラリ
 
-* jQuery
-* Underscore.js
-* moment.js
+* [jQuery](http://jquery.com/)
+  * [ドキュメント](http://api.jquery.com/)
+* [Underscore.js](http://underscorejs.org/)
+  * [ドキュメント](http://underscorejs.org/)
+* [moment.js](http://momentjs.com/)
+  * [ドキュメント](http://momentjs.com/docs/)
 
 ## ワイヤーフレーム
 
