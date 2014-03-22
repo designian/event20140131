@@ -97,5 +97,22 @@
     return tmplCache[tmplName];
   };
 
+  /**
+   * 行きのフォームデータ取得
+   *
+   * return {String}
+   */
+  util.getFormDataForward = function() {
+    return sessionStorage.getItem("d-formdata-forward");
+  }
+
+  /**
+   * 復路のフォームデータ取得
+   *
+   * return {String}
+   */
+  util.getFormDataBackward = function() {
+    return sessionStorage.getItem("d-formdata-backward");
+  }
 
 })(window);

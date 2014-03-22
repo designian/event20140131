@@ -16,6 +16,7 @@
       <span>エクスプレス予約(復路)</span>
     </header>
 
+<form id="js-form" data-href="result_backward.html" data-direction="backward">
   <div class="content">
     <div id="forward"></div>
     <div id="form">
@@ -224,15 +225,18 @@
           <label><input type="radio" name="resultCounts" value="10">10</label>
           <label><input type="radio" name="resultCounts" value="20">20</label>
         </div>
-        <p><button class="btn-large" id="js-search-backward" data-href="result_backward.html">検索する</button></p>
+        <!-- <p><button class="btn-large" id="js-search-backward" data-href="result_backward.html">検索する</button></p> -->
+        <p><input class="btn-large" type="submit" value="検索する"><p>
       </div>
 
   </div>
+</form>
 </section>
 
 
 <!--Script-->
 <script src="js/lib/jquery-1.10.2.js"></script>
+<script src="js/lib/jquery.formdata.js"></script>
 <script src="js/lib/moment-with-langs.min.js"></script>
 <script src="js/lib/underscore-min.js"></script>
 <script src="js/util.js"></script>
