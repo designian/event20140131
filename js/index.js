@@ -1,7 +1,15 @@
 $(function() {
-    var $form = $("#form");
+    var $form = $("#js-form");
     var $searchForward = $("#js-search-forward");
     var $searchBackward = $("#js-search-backward");
+
+    $("#js-form").on("submit",function(e) {
+      e.preventDefault();
+      var direction = $(this).attr("data-direction");
+      util.setSessionStorage( "d-formdata-"+direction, JSON.stringify( $(this).formData()) );
+      saveSearchResult();
+      location.href = $(this).attr("data-href");
+    });
 
     $searchForward.on("click", nextStep);
     $searchBackward.on("click",nextStep);
