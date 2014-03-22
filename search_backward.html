@@ -23,9 +23,9 @@
       <p class="input-label">乗車日</p>
       <input type="hidden" name="year" value="2014">
       <select id="month" name="month">
-        <option selected="selected" value="01">1</option>
+        <option value="01">1</option>
         <option value="02">2</option>
-        <option value="03">3</option>
+        <option selected="selected" value="03">3</option>
         <option value="04">4</option>
         <option value="05">5</option>
         <option value="06">6</option>
@@ -49,7 +49,7 @@
         <option value="09">9</option>
         <option value="10">10</option>
         <option value="11">11</option>
-        <option selected="selected" value="12">12</option>
+        <option value="12">12</option>
         <option value="13">13</option>
         <option value="14">14</option>
         <option value="15">15</option>
@@ -59,7 +59,7 @@
         <option value="19">19</option>
         <option value="20">20</option>
         <option value="21">21</option>
-        <option value="22">22</option>
+        <option selected="selected" value="22">22</option>
         <option value="23">23</option>
         <option value="24">24</option>
         <option value="25">25</option>
@@ -200,6 +200,14 @@
           <option value="33">小倉（福岡）</option>
           <option value="34">博多</option>
         </select>
+
+        <div class="input-radio">
+          <input type="radio" name="timeOption" value="1" checked>出発
+          <input type="radio" name="timeOption" value="2">到着
+          <input type="radio" name="timeOption" value="3">始発
+          <input type="radio" name="timeOption" value="4">終電
+          <input type="radio" name="timeOption" value="5">今すぐ
+        </div>
 
         <p class="input-label">人数</p>
         <input type="text" size="5" class="text-input" min="1" value="1" name="people">
